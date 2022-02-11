@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.order.CheckoutFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/text_view_order_summary"
+            style="@style/Widget.LunchTray.TextView.Info"
+            android:text="@string/order_summary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_view_entree"
+            style="@style/Widget.LunchTray.TextView.Info"
+            app:layout_constraintStart_toStartOf="@id/text_view_order_summary"
+            app:layout_constraintTop_toBottomOf="@id/text_view_order_summary"
+            tools:text="Three Bean Chili" />
+
+        <TextView
+            style="@style/Widget.LunchTray.TextView.Info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_order_summary"
+            tools:text="$4.00" />
+
+        <TextView
+            android:id="@+id/text_view_side"
+            style="@style/Widget.LunchTray.TextView.Info"
+            app:layout_constraintStart_toStartOf="@id/text_view_order_summary"
+            app:layout_constraintTop_toBottomOf="@id/text_view_entree"
+            tools:text="Spicy Potatoes" />
+
+        <TextView
+            style="@style/Widget.LunchTray.TextView.Info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_entree"
+            tools:text="$1.00" />
+
+        <TextView
+            android:id="@+id/text_view_accompaniment"
+            style="@style/Widget.LunchTray.TextView.Info"
+            app:layout_constraintStart_toStartOf="@id/text_view_order_summary"
+            app:layout_constraintTop_toBottomOf="@id/text_view_side"
+            tools:text="Pickled Veggies" />
+
+        <TextView
+            style="@style/Widget.LunchTray.TextView.Info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_side"
+            tools:text="$0.50" />
+
+        <View
+            android:id="@+id/view_divider"
+            style="?attr/dividerHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_accompaniment" />
+
+        <TextView
+            android:id="@+id/text_view_subtotal"
+            style="@style/Widget.LunchTray.TextView.Info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_divider"
+            tools:text="Subtotal: $6.50" />
+
+        <TextView
+            android:id="@+id/text_view_tax"
+            style="@style/Widget.LunchTray.TextView.Info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_subtotal"
+            tools:text="Tax: $0.52" />
+
+        <TextView
+            android:id="@+id/text_view_total"
+            style="@style/Widget.LunchTray.TextView.Info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_tax"
+            tools:text="Total: $7.02" />
+
+        <Button
+            android:id="@+id/button_submit"
+            style="@style/Widget.LunchTray.Button.Next"
+            android:text="@string/submit_order"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_total" />
+
+        <Button
+            style="@style/Widget.LunchTray.Button.Cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_submit" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

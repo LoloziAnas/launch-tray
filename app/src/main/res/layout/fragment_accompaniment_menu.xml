@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.order.AccompanimentMenuFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <RadioGroup
+                android:id="@+id/radio_group_side"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Accompaniment 1" />
+
+                <TextView
+                    style="@style/Widget.LunchTray.TextView.Info"
+                    tools:text="Accompaniment 1 description" />
+
+                <TextView
+                    style="@style/Widget.LunchTray.TextView.Info"
+                    tools:text="$0.00" />
+
+                <View
+                    style="?attr/dividerHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Accompaniment 2" />
+
+                <TextView
+                    style="@style/Widget.LunchTray.TextView.Info"
+                    tools:text="Accompaniment 2 description" />
+
+                <TextView
+                    style="@style/Widget.LunchTray.TextView.Info"
+                    tools:text="$0.00" />
+
+                <View
+                    style="?attr/dividerHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Accompaniment 3" />
+
+                <TextView
+                    style="@style/Widget.LunchTray.TextView.Info"
+                    tools:text="Accompaniment 3 description" />
+
+                <TextView
+                    style="@style/Widget.LunchTray.TextView.Info"
+                    tools:text="$0.00" />
+
+                <View
+                    style="?attr/dividerHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/text_view_subtotal"
+                style="@style/Widget.LunchTray.TextView.Info"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radio_group_side"
+                tools:text="Subtotal $5.00 " />
+
+            <Button
+                android:id="@+id/button_cancel"
+                style="@style/Widget.LunchTray.Button.Cancel"
+                app:layout_constraintEnd_toStartOf="@+id/button_next"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_view_subtotal" />
+
+            <Button
+                android:id="@+id/button_next"
+                style="@style/Widget.LunchTray.Button.Next"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/button_cancel"
+                app:layout_constraintTop_toBottomOf="@id/text_view_subtotal" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>
