@@ -5,7 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.lolozianas.lunchtray.R
+import com.lolozianas.lunchtray.databinding.FragmentEntreeMenuBinding
+import com.lolozianas.lunchtray.model.OrderViewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -13,12 +17,54 @@ import com.lolozianas.lunchtray.R
  */
 class EntreeMenuFragment : Fragment() {
 
+    // Binding object instance corresponding to the fragment_entree_menu.xml layout
+    private var _binding: FragmentEntreeMenuBinding? = null
+    private val binding get() = _binding!!
+
+    // Order View Model object instance
+    private val orderViewModel: OrderViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_entree_menu, container, false)
+        _binding = FragmentEntreeMenuBinding.inflate(layoutInflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.apply {
+            // Specify the view model lifecycleOwner as the fragment lifecycle
+            lifecycleOwner = viewLifecycleOwner
+            // Assign the view model
+            viewModel = orderViewModel
+            // Assign the fragment
+            entreeMenuFragment = this@EntreeMenuFragment
+        }
+    }
+
+    /**
+     *  Navigate to the side menu fragment
+     *  */
+    fun goNextScreen() {
+        findNavController().navigate(R.id.action_entreeMenuFragment_to_sideMenuFragment)
+    }
+
+    /**
+     * Cancel order and start over
+     * */
+    fun cancelOrder() {
+        orderViewModel.resetOrder()
+        findNavController().navigate(R.id.action_entreeMenuFragment_to_startOrderFragment)
+    }
+
+    /**
+     * This fragment lifecycle method is called when the view hierarchy associated with the fragment
+     * is being removed. As a result, clear out the binding object.
+     */
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 

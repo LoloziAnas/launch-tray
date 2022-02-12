@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.lolozianas.lunchtray.R
 import com.lolozianas.lunchtray.databinding.FragmentStartOrderBinding
+import com.lolozianas.lunchtray.model.OrderViewModel
 
 
 /**
@@ -18,12 +20,13 @@ class StartOrderFragment : Fragment() {
     // Binding object instance corresponding to fragment_start_order.xml layout.
     private var _binding: FragmentStartOrderBinding? = null
     private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentStartOrderBinding.inflate(layoutInflater)
+        _binding = FragmentStartOrderBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 

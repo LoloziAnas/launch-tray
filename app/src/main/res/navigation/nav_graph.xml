@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_entreeMenuFragment_to_sideMenuFragment"
             app:destination="@id/sideMenuFragment" />
+        <action
+            android:id="@+id/action_entreeMenuFragment_to_startOrderFragment"
+            app:destination="@id/startOrderFragment" />
     </fragment>
     <fragment
         android:id="@+id/sideMenuFragment"
@@ -29,6 +32,9 @@
         <action
             android:id="@+id/action_sideMenuFragment_to_accompanimentMenuFragment"
             app:destination="@id/accompanimentMenuFragment" />
+        <action
+            android:id="@+id/action_sideMenuFragment_to_startOrderFragment"
+            app:destination="@id/startOrderFragment" />
     </fragment>
     <fragment
         android:id="@+id/accompanimentMenuFragment"
@@ -37,10 +43,17 @@
         <action
             android:id="@+id/action_accompanimentMenuFragment_to_checkoutFragment"
             app:destination="@id/checkoutFragment" />
+        <action
+            android:id="@+id/action_accompanimentMenuFragment_to_startOrderFragment"
+            app:destination="@id/startOrderFragment" />
     </fragment>
     <fragment
         android:id="@+id/checkoutFragment"
         android:name="com.lolozianas.lunchtray.ui.order.CheckoutFragment"
         android:label="@string/app_name"
-        tools:layout="@layout/fragment_checkout" />
+        tools:layout="@layout/fragment_checkout" >
+        <action
+            android:id="@+id/action_checkoutFragment_to_startOrderFragment"
+            app:destination="@id/startOrderFragment" />
+    </fragment>
 </navigation>
