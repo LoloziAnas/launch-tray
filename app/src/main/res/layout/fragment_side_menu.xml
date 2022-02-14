@@ -5,6 +5,13 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.lolozianas.lunchtray.model.OrderViewModel" />
+
+        <variable
+            name="sideMenuFragment"
+            type="com.lolozianas.lunchtray.ui.order.SideMenuFragment" />
     </data>
 
     <ScrollView
@@ -27,13 +34,17 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick='@{()-> viewModel.setSide(viewModel.menuItems["salad"].name)}'
+                    android:text='@{viewModel.menuItems["salad"].name}'
                     tools:text="Side 1" />
 
                 <TextView
                     style="@style/Widget.LunchTray.TextView.Info"
+                    android:text='@{viewModel.menuItems["salad"].description}'
                     tools:text="Side 1 description" />
 
                 <TextView
+                    android:text='@{viewModel.menuItems["salad"].getFormattedPrice}'
                     style="@style/Widget.LunchTray.TextView.Info"
                     tools:text="$0.00" />
 
@@ -45,15 +56,19 @@
                     android:layout_marginBottom="5dp" />
 
                 <RadioButton
+                    android:onClick='@{()-> viewModel.setSide(viewModel.menuItems["soup"].name)}'
+                    android:text='@{viewModel.menuItems["soup"].name}'
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="Side 2" />
 
                 <TextView
                     style="@style/Widget.LunchTray.TextView.Info"
+                    android:text='@{viewModel.menuItems["soup"].description}'
                     tools:text="Side 2 description" />
 
                 <TextView
+                    android:text='@{viewModel.menuItems["soup"].getFormattedPrice}'
                     style="@style/Widget.LunchTray.TextView.Info"
                     tools:text="$0.00" />
 
@@ -67,13 +82,17 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick='@{()-> viewModel.setSide(viewModel.menuItems["potatoes"].name)}'
+                    android:text='@{viewModel.menuItems["potatoes"].name}'
                     tools:text="Side 3" />
 
                 <TextView
+                    android:text='@{viewModel.menuItems["potatoes"].description}'
                     style="@style/Widget.LunchTray.TextView.Info"
                     tools:text="Side 3 description" />
 
                 <TextView
+                    android:text='@{viewModel.menuItems["potatoes"].getFormattedPrice()}'
                     style="@style/Widget.LunchTray.TextView.Info"
                     tools:text="$0.00" />
 
@@ -85,15 +104,19 @@
                     android:layout_marginBottom="5dp" />
 
                 <RadioButton
+                    android:onClick='@{()-> viewModel.setSide(viewModel.menuItems["rice"].name)}'
+                    android:text='@{viewModel.menuItems["rice"].name}'
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="Side 4" />
 
                 <TextView
                     style="@style/Widget.LunchTray.TextView.Info"
+                    android:text='@{viewModel.menuItems["rice"].description}'
                     tools:text="Side 4 description" />
 
                 <TextView
+                    android:text='@{viewModel.menuItems["rice"].getFormattedPrice()}'
                     style="@style/Widget.LunchTray.TextView.Info"
                     tools:text="$0.00" />
 
@@ -109,6 +132,7 @@
             <TextView
                 android:id="@+id/text_view_subtotal"
                 style="@style/Widget.LunchTray.TextView.Info"
+                android:text='@{@string/subtotal(viewModel.subtotal)}'
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/radio_group_side"
                 tools:text="Subtotal $5.00 " />
@@ -117,12 +141,14 @@
                 android:id="@+id/button_cancel"
                 style="@style/Widget.LunchTray.Button.Cancel"
                 app:layout_constraintEnd_toStartOf="@+id/button_next"
+                android:onClick="@{()-> sideMenuFragment.cancelOrder()}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_view_subtotal" />
 
             <Button
                 android:id="@+id/button_next"
                 style="@style/Widget.LunchTray.Button.Next"
+                android:onClick="@{()-> sideMenuFragment.goNextScreen()}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/button_cancel"
                 app:layout_constraintTop_toBottomOf="@id/text_view_subtotal" />
