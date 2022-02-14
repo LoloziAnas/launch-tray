@@ -70,6 +70,8 @@ class OrderViewModel : ViewModel() {
         _entree.value = menuItems[entree]
         // update the subtotal to reflect the price of the selected accompaniment.
         _entree.value?.price?.let { updateSubtotal(it) }
+        // Update total subtotal
+        updateSubtotal(_entree.value?.price!!)
     }
 
     /**

@@ -5,7 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.lolozianas.lunchtray.R
+import com.lolozianas.lunchtray.databinding.FragmentAccompanimentMenuBinding
+import com.lolozianas.lunchtray.model.OrderViewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -13,11 +17,46 @@ import com.lolozianas.lunchtray.R
  */
 class AccompanimentMenuFragment : Fragment() {
 
+    private var _binding: FragmentAccompanimentMenuBinding? = null
+    private val binding get() = _binding!!
+    private val orderViewModel: OrderViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_accompaniment_menu, container, false)
+        _binding = FragmentAccompanimentMenuBinding.inflate(layoutInflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.apply {
+            // Specify the lifecycle owner
+            lifecycleOwner = viewLifecycleOwner
+            // Assign the view model
+            viewModel = orderViewModel
+            // Assign the fragment
+            accompanimentMenuFragment = this@AccompanimentMenuFragment
+        }
+    }
+
+    /**
+     * Cancel the order by navigating the [StartOrderFragment] fragment to start over
+     * */
+    fun cancelOrder() {
+        orderViewModel.resetOrder()
+        findNavController().navigate(R.id.action_accompanimentMenuFragment_to_startOrderFragment)
+    }
+
+    /**
+     * Navigate to next fragment [CheckoutFragment]
+     * */
+    fun goNextScreen() {
+        findNavController().navigate(R.id.action_accompanimentMenuFragment_to_checkoutFragment)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

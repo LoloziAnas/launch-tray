@@ -5,6 +5,13 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.lolozianas.lunchtray.model.OrderViewModel" />
+
+        <variable
+            name="accompanimentMenuFragment"
+            type="com.lolozianas.lunchtray.ui.order.AccompanimentMenuFragment" />
     </data>
 
     <ScrollView
@@ -27,13 +34,18 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+
+                    android:onClick='@{()-> viewModel.setAccompaniment(viewModel.menuItems["bread"].name)}'
+                    android:text='@{viewModel.menuItems["bread"].name}'
                     tools:text="Accompaniment 1" />
 
                 <TextView
+                    android:text='@{viewModel.menuItems["bread"].description}'
                     style="@style/Widget.LunchTray.TextView.Info"
                     tools:text="Accompaniment 1 description" />
 
                 <TextView
+                    android:text='@{viewModel.menuItems["bread"].getFormattedPrice()}'
                     style="@style/Widget.LunchTray.TextView.Info"
                     tools:text="$0.00" />
 
@@ -47,13 +59,17 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick='@{()-> viewModel.setAccompaniment(viewModel.menuItems["berries"].name)}'
+                    android:text='@{viewModel.menuItems["berries"].name}'
                     tools:text="Accompaniment 2" />
 
                 <TextView
+                    android:text='@{viewModel.menuItems["berries"].description}'
                     style="@style/Widget.LunchTray.TextView.Info"
                     tools:text="Accompaniment 2 description" />
 
                 <TextView
+                    android:text='@{viewModel.menuItems["berries"].getFormattedPrice()}'
                     style="@style/Widget.LunchTray.TextView.Info"
                     tools:text="$0.00" />
 
@@ -65,15 +81,19 @@
                     android:layout_marginBottom="5dp" />
 
                 <RadioButton
+                    android:onClick='@{()-> viewModel.setAccompaniment(viewModel.menuItems["pickles"].name)}'
+                    android:text='@{viewModel.menuItems["pickles"].name}'
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:text="Accompaniment 3" />
 
                 <TextView
+                    android:text='@{viewModel.menuItems["pickles"].description}'
                     style="@style/Widget.LunchTray.TextView.Info"
                     tools:text="Accompaniment 3 description" />
 
                 <TextView
+                    android:text='@{viewModel.menuItems["pickles"].getFormattedPrice()}'
                     style="@style/Widget.LunchTray.TextView.Info"
                     tools:text="$0.00" />
 
@@ -87,6 +107,7 @@
             </RadioGroup>
 
             <TextView
+                android:text='@{@string/subtotal(viewModel.subtotal)}'
                 android:id="@+id/text_view_subtotal"
                 style="@style/Widget.LunchTray.TextView.Info"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -98,11 +119,13 @@
                 style="@style/Widget.LunchTray.Button.Cancel"
                 app:layout_constraintEnd_toStartOf="@+id/button_next"
                 app:layout_constraintStart_toStartOf="parent"
+                android:onClick="@{()-> accompanimentMenuFragment.cancelOrder()}"
                 app:layout_constraintTop_toBottomOf="@id/text_view_subtotal" />
 
             <Button
                 android:id="@+id/button_next"
                 style="@style/Widget.LunchTray.Button.Next"
+                android:onClick="@{()-> accompanimentMenuFragment.goNextScreen()}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/button_cancel"
                 app:layout_constraintTop_toBottomOf="@id/text_view_subtotal" />

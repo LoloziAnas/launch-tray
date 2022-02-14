@@ -8,4 +8,6 @@
     <string name="order_summary">Order Summary</string>
     <string name="submit_order">Submit Order</string>
     <string name="subtotal">Subtotal %s</string>
+    <string name="total">Total %s</string>
+    <string name="tax">Tax %s</string>
 </resources>
