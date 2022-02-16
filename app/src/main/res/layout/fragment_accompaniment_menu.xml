@@ -34,8 +34,7 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
-                    android:onClick='@{()-> viewModel.setAccompaniment(viewModel.menuItems["bread"].name)}'
+                    android:onClick='@{()-> viewModel.setAccompaniment(viewModel.menuItems["bread"])}'
                     android:text='@{viewModel.menuItems["bread"].name}'
                     tools:text="Accompaniment 1" />
 
@@ -59,7 +58,7 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick='@{()-> viewModel.setAccompaniment(viewModel.menuItems["berries"].name)}'
+                    android:onClick='@{()-> viewModel.setAccompaniment(viewModel.menuItems["berries"])}'
                     android:text='@{viewModel.menuItems["berries"].name}'
                     tools:text="Accompaniment 2" />
 
@@ -81,7 +80,7 @@
                     android:layout_marginBottom="5dp" />
 
                 <RadioButton
-                    android:onClick='@{()-> viewModel.setAccompaniment(viewModel.menuItems["pickles"].name)}'
+                    android:onClick='@{()-> viewModel.setAccompaniment(viewModel.menuItems["pickles"])}'
                     android:text='@{viewModel.menuItems["pickles"].name}'
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

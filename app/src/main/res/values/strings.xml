@@ -10,4 +10,13 @@
     <string name="subtotal">Subtotal %s</string>
     <string name="total">Total %s</string>
     <string name="tax">Tax %s</string>
+    <string name="order_details">
+        Order details: /n/n
+        \n Entree: %2$s
+        \n Side: %2$s
+        \n Accompaniment: %2$s
+        \n\n Total: %4$s
+    </string>
+    <string name="chooser_title">Share this order with</string>
+    <string name="order_extra_subject">New Order</string>
 </resources>

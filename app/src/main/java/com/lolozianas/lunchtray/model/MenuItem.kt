@@ -11,5 +11,5 @@ data class MenuItem(
     /** Getter method for price
      * Includes formatting
      * */
-    fun getFormattedPrice() = NumberFormat.getCurrencyInstance().format(price)
+    fun getFormattedPrice(): String = NumberFormat.getCurrencyInstance().format(price)
 }

@@ -34,7 +34,7 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick='@{()-> viewModel.setSide(viewModel.menuItems["salad"].name)}'
+                    android:onClick='@{()-> viewModel.setSide(viewModel.menuItems["salad"])}'
                     android:text='@{viewModel.menuItems["salad"].name}'
                     tools:text="Side 1" />
 
@@ -44,8 +44,8 @@
                     tools:text="Side 1 description" />
 
                 <TextView
-                    android:text='@{viewModel.menuItems["salad"].getFormattedPrice}'
                     style="@style/Widget.LunchTray.TextView.Info"
+                    android:text='@{viewModel.menuItems["salad"].getFormattedPrice}'
                     tools:text="$0.00" />
 
                 <View
@@ -56,10 +56,10 @@
                     android:layout_marginBottom="5dp" />
 
                 <RadioButton
-                    android:onClick='@{()-> viewModel.setSide(viewModel.menuItems["soup"].name)}'
-                    android:text='@{viewModel.menuItems["soup"].name}'
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick='@{()-> viewModel.setSide(viewModel.menuItems["soup"])}'
+                    android:text='@{viewModel.menuItems["soup"].name}'
                     tools:text="Side 2" />
 
                 <TextView
@@ -68,8 +68,8 @@
                     tools:text="Side 2 description" />
 
                 <TextView
-                    android:text='@{viewModel.menuItems["soup"].getFormattedPrice}'
                     style="@style/Widget.LunchTray.TextView.Info"
+                    android:text='@{viewModel.menuItems["soup"].getFormattedPrice}'
                     tools:text="$0.00" />
 
                 <View
@@ -82,18 +82,18 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick='@{()-> viewModel.setSide(viewModel.menuItems["potatoes"].name)}'
+                    android:onClick='@{()-> viewModel.setSide(viewModel.menuItems["potatoes"])}'
                     android:text='@{viewModel.menuItems["potatoes"].name}'
                     tools:text="Side 3" />
 
                 <TextView
-                    android:text='@{viewModel.menuItems["potatoes"].description}'
                     style="@style/Widget.LunchTray.TextView.Info"
+                    android:text='@{viewModel.menuItems["potatoes"].description}'
                     tools:text="Side 3 description" />
 
                 <TextView
-                    android:text='@{viewModel.menuItems["potatoes"].getFormattedPrice()}'
                     style="@style/Widget.LunchTray.TextView.Info"
+                    android:text='@{viewModel.menuItems["potatoes"].getFormattedPrice()}'
                     tools:text="$0.00" />
 
                 <View
@@ -104,10 +104,10 @@
                     android:layout_marginBottom="5dp" />
 
                 <RadioButton
-                    android:onClick='@{()-> viewModel.setSide(viewModel.menuItems["rice"].name)}'
-                    android:text='@{viewModel.menuItems["rice"].name}'
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick='@{()-> viewModel.setSide(viewModel.menuItems["rice"])}'
+                    android:text='@{viewModel.menuItems["rice"].name}'
                     tools:text="Side 4" />
 
                 <TextView
@@ -116,8 +116,8 @@
                     tools:text="Side 4 description" />
 
                 <TextView
-                    android:text='@{viewModel.menuItems["rice"].getFormattedPrice()}'
                     style="@style/Widget.LunchTray.TextView.Info"
+                    android:text='@{viewModel.menuItems["rice"].getFormattedPrice()}'
                     tools:text="$0.00" />
 
                 <View
@@ -140,8 +140,8 @@
             <Button
                 android:id="@+id/button_cancel"
                 style="@style/Widget.LunchTray.Button.Cancel"
-                app:layout_constraintEnd_toStartOf="@+id/button_next"
                 android:onClick="@{()-> sideMenuFragment.cancelOrder()}"
+                app:layout_constraintEnd_toStartOf="@+id/button_next"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_view_subtotal" />
 

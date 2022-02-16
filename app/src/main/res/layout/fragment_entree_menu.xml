@@ -34,7 +34,7 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick='@{()-> viewModel.setEntree(viewModel.menuItems["cauliflower"].name)}'
+                    android:onClick='@{()-> viewModel.setEntree(viewModel.menuItems["cauliflower"])}'
                     android:text='@{viewModel.menuItems["cauliflower"].name}'
                     tools:text="Entree 1" />
 
@@ -59,7 +59,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text='@{viewModel.menuItems["chili"].name}'
-                    android:onClick='@{()-> viewModel.setEntree(viewModel.menuItems["chili"].name)}'
+                    android:onClick='@{()-> viewModel.setEntree(viewModel.menuItems["chili"])}'
 
                     tools:text="Entree 2" />
 
@@ -84,7 +84,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text='@{viewModel.menuItems["pasta"].name}'
-                    android:onClick='@{()-> viewModel.setEntree(viewModel.menuItems["pasta"].name)}'
+                    android:onClick='@{()-> viewModel.setEntree(viewModel.menuItems["pasta"])}'
 
                     tools:text="Entree 3" />
 
@@ -109,7 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text='@{viewModel.menuItems["skillet"].name}'
-                    android:onClick='@{()-> viewModel.setEntree(viewModel.menuItems["skillet"].name)}'
+                    android:onClick='@{()-> viewModel.setEntree(viewModel.menuItems["skillet"])}'
 
                     tools:text="Entree 4" />
 
